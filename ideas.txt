@@ -1,0 +1,49 @@
+
+
+Tp sobre kiosco online
+
+rutas de tp
+
+/ (start)(de aca iriamos a iniciar sesion o registrarse)
+_ get
+
+/login (este lugar deberia de chequear el usuario/contraseña para despues ir a la pagina de compra con productos)
+(envia usuario contraseña al servidor para verificar que los datos son correctos)
+_ get
+_ post
+
+/signup (lugar donde cargas los datos para registrarte y corroborar que no estas repitiendo datos como email o usuario)
+_ get
+_ post
+
+/mainPage (pagina de productos varios)
+_ get
+_ post??
+
+/user (vista y modificacion de datos de usuario)
+_ get
+_ post/put?
+
+/user/getall
+
+/user/getone
+
+/user/getcustom
+
+
+        lista de rutas:
+        _ /
+        _ /login
+        _ /signup
+        _ /mainpage
+        _ /user
+
+
+sobre data usuarios:
+
+_ obtener uno por id (o nombre o mail??)
+_ obtener todos
+
+_ crear uno
+_ actualizar uno
+_ borrar uno
