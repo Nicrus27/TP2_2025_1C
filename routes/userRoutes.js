@@ -12,9 +12,9 @@ userRouter.get("/:id", userControllers.getUserById);
 
 userRouter.post("/", userControllers.createUser); 
 
-userRouter.put("/", userControllers.updateUser);
+//userRouter.put("/", userControllers.updateUser);
 
-userRouter.get("/del", userControllers.deleteUser);
+//userRouter.get("/del", userControllers.deleteUser);
 
 userRouter.post("/login", userControllers.login)
 

@@ -56,6 +56,7 @@ class UserControllers{
         }
     }
 
+    /*
     updateUser = (req, res) => {
         //stand by
         res.status(200).send({
@@ -69,6 +70,7 @@ class UserControllers{
             enController: true
         })
     }
+    */
 
     login = async (req, res) => {
         try {

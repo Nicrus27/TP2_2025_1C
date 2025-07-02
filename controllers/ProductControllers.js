@@ -42,6 +42,7 @@ class ProductControllers {
         }
     }
 
+    /*
     deleteProductFromUser = async () => {
         try {
 
@@ -49,6 +50,7 @@ class ProductControllers {
 
         }
     }
+    */
 }
 
 export default ProductControllers;

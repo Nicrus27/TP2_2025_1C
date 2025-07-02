@@ -54,9 +54,11 @@ class ProductServices {
         return foundProds;
     }
 
+    /*
     deleteProductFromUser = async () => { //solo productos de usuario
 
     }
+    */
 
 }
 

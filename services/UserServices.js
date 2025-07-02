@@ -16,6 +16,7 @@ class UserServices {
         return await User.create(user);
     }
 
+    /*
     updateUser = async () => {
         //stand by
     }
@@ -23,6 +24,7 @@ class UserServices {
     deleteUser = async () => {
         //stand by  
     }
+    */
 
     login = async (data) => {
         const {mail, pass} = data;
@@ -43,12 +45,13 @@ class UserServices {
     }
 
 
-
+    /*
 
     hashCheck = async (data) => {
         
         //standBy
     }
+    */
 }
 
 export default UserServices;
