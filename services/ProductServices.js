@@ -19,10 +19,10 @@ class ProductServices {
             }
         });
         if (!product) throw new Error ("Product not found");
-        const disc = await Discount.findByPk(product.DiscountDiscName)
-        product.price = product.price * disc;
+        //const disc = await Discount.findByPk(product.DiscountDiscName)
+        //product.price = product.price * disc;
         const end = await user.addProduct(product)
-        console.log(end);
+        //console.log(end);
         return end;
     }
     
@@ -41,16 +41,26 @@ class ProductServices {
         })
 
         let foundProds = [];
+        
 
         if(prods.length > 0){
+            let prod;
             for(let i= 0; i < prods.length; i++){
-            foundProds.push(await Product.findOne({
+                prod = await Product.findOne({
                 where: {
                     id: prods[i].ProductId
                 }
-                }))
+                })
+                let {brand, type, model, description, price, warranty, DiscountDiscName} = prod;
+                const disc = await Discount.findByPk(DiscountDiscName);
+                price = price - price*disc.discAmount;
+                foundProds.push({brand, type, model, description, price, warranty, DiscountDiscName})
             }
+
         }
+
+
+
         return foundProds;
     }
 

@@ -32,7 +32,7 @@ class ProductControllers {
     getAllBoughtProducts = async (req, res) => {
         try {
             const {mail} = req.params;
-            console.log("2", mail)
+            //console.log("2", mail)
             const boughtStatus = await this.productServices.getAllBoughtProducts(mail);
             res.status(200).send(boughtStatus);
         } catch (erMsg) {
