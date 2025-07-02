@@ -20,7 +20,7 @@ Product.init({
         type: DataTypes.STRING
     },
     price:{
-        type: DataTypes.FLOAT(10, 2)
+        type: DataTypes.DOUBLE(10,2)
     },
     warranty:{
         type: DataTypes.INTEGER(2)

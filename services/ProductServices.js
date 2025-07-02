@@ -1,4 +1,4 @@
-import {Product, User, UserProducts} from '../models/index.js';
+import {Product, User, UserProducts, Discount} from '../models/index.js';
 
 class ProductServices {
 
@@ -13,17 +13,19 @@ class ProductServices {
             }
         });
         if (!user) throw new Error ("User not found");
-        const product = await Product.findOne({
+        let product = await Product.findOne({
             where:{
                 model
             }
         });
         if (!product) throw new Error ("Product not found");
+        const disc = await Discount.findByPk(product.DiscountDiscName)
+        product.price = product.price * disc;
         const end = await user.addProduct(product)
         console.log(end);
         return end;
     }
-
+    
     getAllBoughtProducts = async (mail) => {
         const user = await User.findOne({
             where: {
@@ -32,7 +34,7 @@ class ProductServices {
         });
         if (!user) throw new Error ("User not found");
         
-        const prods =await UserProducts.findAll({
+        const prods = await UserProducts.findAll({
             where: {
                 UserId:user.id
             }

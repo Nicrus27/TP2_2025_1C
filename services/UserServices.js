@@ -12,6 +12,7 @@ class UserServices {
     }
 
     createUser = async (user) => {
+        //console.log("llega?")
         return await User.create(user);
     }
 
