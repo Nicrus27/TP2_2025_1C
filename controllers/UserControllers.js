@@ -9,18 +9,19 @@ class UserControllers{
         try {
             const allUsers = await this.userServices.getAllUserService();
             //console.log('all', allUsers)
+            //console.log('all')
             res.status(200).send({
                 allUsers
             })
         } catch(erMsg){
             //console.log('all err', erMsg)
-            res.status(400).send(erMsg)
+            res.status(400).send(erMsg.message)
         }
     }
 
     getUserById = async (req, res) => {
         try {
-            const {id} = req.body;
+            const {id} = req.params;
             const userFound = await this.userServices.getUserById(id);
             //console.log('id', userFound)
             if(userFound === null){
@@ -67,6 +68,23 @@ class UserControllers{
         res.status(200).send({
             enController: true
         })
+    }
+
+    login = async (req, res) => {
+        try {
+            let {mail, pass} = req.body;
+            const loginState = await this.userServices.login({mail, pass})
+            //console.log('user created ', userCreated)
+            res.cookie("token", loginState);
+            res.status(200).send({
+                msg: "inicio de sesion exitoso"
+            })
+        } catch(erMsj){
+            //console.log('err create', erMsj.message)
+            res.status(400).send(
+                erMsj.message
+            )
+        }
     }
 }
 
